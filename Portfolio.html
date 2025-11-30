@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zach Saporito - Research Portfolio</title>
+  <style>
+    body {
+      background: #f4f8fd;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #162453;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .portfolio-container {
+      max-width: 880px;
+      margin: 0 auto;
+      margin-top: 44px;
+      background: #fff;
+      border-radius: 13px;
+      box-shadow: 0 3px 22px rgba(34, 77, 237, 0.08);
+      padding: 32px 20px 16px;
+      min-height: 540px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      /* Make content scrollable if larger than viewport */
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #2546a9;
+      margin-bottom: 14px;
+      letter-spacing: -1.2px;
+      font-size: 2.12rem;
+      font-weight: 700;
+    }
+    .intro {
+      text-align: center;
+      color: #425280;
+      font-size: 1.11rem;
+      margin-bottom: 32px;
+      letter-spacing: -.01em;
+    }
+    .research-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+      gap: 28px;
+      width: 100%;
+    }
+    .research-card {
+      background: #fafdff;
+      border-radius: 11px;
+      box-shadow: 0 2px 13px rgba(34, 77, 237, 0.06);
+      padding: 20px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: box-shadow 0.17s;
+      min-height: 300px;
+      cursor: pointer;
+      border: none;
+      outline: none;
+    }
+    .research-card:hover, .research-card:focus {
+      box-shadow: 0 7px 28px rgba(34, 77, 237, 0.11);
+      outline: 2px solid #224ede26;
+    }
+    .cover-image {
+      width: 100%;
+      max-width: 200px;
+      height: 125px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      background: #e3eaf7;
+      display: block;
+      transition: transform .19s;
+    }
+    .research-card:hover .cover-image {
+      transform: scale(1.035);
+    }
+    .research-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #224ede;
+      margin-bottom: 6px;
+      text-align: center;
+      word-break: break-word;
+    }
+    .research-desc {
+      font-size: 1.01rem;
+      color: #344580;
+      margin-bottom: 16px;
+      text-align: center;
+      min-height: 44px;
+      max-width: 97%;
+      word-break: break-word;
+    }
+    .open-pdf-btn {
+      background: #224ede;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 8px 18px;
+      font-size: 0.97rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .16s;
+      font-weight: 500;
+      margin-top: auto;
+      display: inline-block;
+      box-shadow: 0 1.5px 7px #224ede13;
+    }
+    .open-pdf-btn:hover, .open-pdf-btn:focus {
+      background: #193c92;
+    }
+    /* Simple scrollbar styling */
+    .portfolio-container::-webkit-scrollbar {
+      width: 8px;
+      background: #e8ecf8;
+      border-radius: 15px;
+    }
+    .portfolio-container::-webkit-scrollbar-thumb {
+      background: #ccd9f3;
+      border-radius: 15px;
+    }
+    @media (max-width: 650px) {
+      .portfolio-container {
+        max-height: unset;
+        box-shadow: 0 1.5px 7px rgba(34,77,237, 0.06);
+        border-radius: 0;
+        min-height: unset;
+        padding: 14px 2vw 16px;
+      }
+      h1 {
+        font-size: 1.32rem;
+      }
+      .research-list {
+        gap: 14px;
+      }
+      .research-card {
+        min-height: 180px;
+        padding: 13px 6px 13px;
+      }
+      .cover-image {
+        max-width: 99vw;
+        height: 108px;
+      }
+      .research-title {
+        font-size: 1rem;
+      }
+      .research-desc {
+        font-size: 0.97rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="portfolio-container">
+    <h1>Research Portfolio</h1>
+    <div class="intro">
+      Equity &amp; Market Research.<br>
+      Select any report below for more details or to view the PDF.
+    </div>
+    <div class="research-list" id="researchList">
+      <!-- Research cards generated here by JS -->
+    </div>
+  </div>
+  <script>
+    /*
+      To display research, edit the 'reports' array below.
+      Each item: { title, description, cover, pdf }
+      - cover: image URL or base64 data URL (host images externally for public use!)
+      - pdf: PDF file URL (uploaded to a public host or e.g. Google Drive shared PDF link)
+    */
+    const reports = [
+      {
+        title: "US Consumer Trends: 2024 Outlook",
+        description: "Deep-dive into key US consumer spending data and macro drivers (Q1 2024). Focus on inflation, wage growth, and leading indicators impacting S&P 500 retailers.",
+        cover: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=420&q=80",
+        pdf: "https://example.com/sample-research1.pdf"
+      },
+      {
+        title: "Emerging Markets: ESG & Risk Considerations",
+        description: "Analyzing challenges and opportunities in emerging markets from an ESG and risk perspective. Includes sectoral case studies and data visualizations.",
+        cover: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=420&q=80",
+        pdf: "https://example.com/sample-research2.pdf"
+      },
+      // Add or remove objects above for your research entries!
+      // {
+      //   title: "Example",
+      //   description: "Short description.",
+      //   cover: "https://your-image-link.jpg",
+      //   pdf: "https://your-public-pdf-link.pdf"
+      // },
+    ];
+
+    function renderReports() {
+      const list = document.getElementById('researchList');
+      if (reports.length === 0) {
+        list.innerHTML = `<p style="grid-column: 1/-1;text-align:center;padding:42px 0;color:#789;">No research reports available yet.</p>`;
+        return;
+      }
+      list.innerHTML = '';
+      for (const report of reports) {
+        const card = document.createElement('div');
+        card.className = 'research-card';
+        card.tabIndex = 0; // Focus for accessibility
+
+        // Cover image
+        const img = document.createElement('img');
+        img.className = 'cover-image';
+        img.alt = 'Cover image';
+        img.src = report.cover;
+        card.appendChild(img);
+
+        // Title
+        const title = document.createElement('div');
+        title.className = 'research-title';
+        title.textContent = report.title;
+        card.appendChild(title);
+
+        // Description
+        const desc = document.createElement('div');
+        desc.className = 'research-desc';
+        desc.textContent = report.description;
+        card.appendChild(desc);
+
+        // Open PDF button
+        const link = document.createElement('a');
+        link.className = 'open-pdf-btn';
+        link.href = report.pdf;
+        link.target = '_blank';
+        link.textContent = 'Open PDF';
+        link.rel = "noopener";
+        card.appendChild(link);
+
+        // Make card clickable for PDF
+        card.addEventListener('click', () => {
+          window.open(report.pdf, '_blank', 'noopener');
+        });
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            window.open(report.pdf, '_blank', 'noopener');
+            e.preventDefault();
+          }
+        });
+
+        // So clicking button doesn't propagate
+        link.addEventListener('click', e => e.stopPropagation());
+
+        list.appendChild(card);
+      }
+    }
+
+    renderReports();
+  </script>
+</body>
+</html>
