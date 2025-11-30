@@ -151,3 +151,25 @@
     }
   }
 </style>
+<style>
+  html, body {
+    height: 100%;
+    min-height: 100vh;
+    overflow-y: hidden !important;
+  }
+  body {
+    position: fixed;
+    width: 100vw;
+    overscroll-behavior-y: none;
+  }
+</style>
+<script>
+  // Prevent and correct vertical scrolling on page load and on scroll events.
+  function lockVerticalScroll() {
+    window.scrollTo(0, 0);
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+  document.addEventListener('DOMContentLoaded', lockVerticalScroll);
+  window.addEventListener('scroll', lockVerticalScroll, { passive: false });
+</script>
