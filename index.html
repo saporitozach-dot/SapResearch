@@ -11,337 +11,174 @@
   gtag('config', 'G-94CXWRNXG5');
 </script>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zach Saporito - Research Portfolio</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Equity & Market Research Portfolio</title>
   <style>
     body {
-        background-image: 
-      linear-gradient(rgba(34, 34, 34, 0.50), rgba(0, 0, 0, 0.5)),
-      url('https://wallpapers.com/images/hd/4k-new-york-city-3840-x-2160-82txka3qihnrl7v3.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      filter: brightness(1) contrast(1);
+      background: #224ede;
+      color: #222;
       min-height: 100vh;
-      margin: 0;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      color: #162453;
+      margin: 0;
       display: flex;
-      flex-direction: column;
       align-items: center;
+      justify-content: center;
     }
-    .portfolio-container {
-      max-width: 880px;
-      margin: 0 auto;
-      margin-top: 44px;
-      background: #fff;
-      border-radius: 13px;
-      box-shadow: 0 3px 22px rgba(34, 77, 237, 0.08);
-      padding: 36px 20px 20px;
-      min-height: 450px;
+    .container {
+      background: #ffffffcc;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.05);
+      padding: 40px 32px;
+      max-width: 420px;
       width: 100%;
-      display: flex;
-      flex-direction: column;
-      /* Lower max-height so box doesn't touch page bottom, still scrollable */
-      max-height: 78vh;
-      overflow-y: auto;
+      text-align: center;
     }
     h1 {
-      text-align: center;
-      color: #2546a9;
-      margin-bottom: 14px;
-      letter-spacing: -1.2px;
-      font-size: 2.12rem;
+      margin: 0 0 18px 0;
+      font-size: 2.2rem;
       font-weight: 700;
+      letter-spacing: -1px;
     }
-    .intro {
-      text-align: center;
-      color: #425280;
-      font-size: 1.11rem;
-      margin-bottom: 32px;
-      letter-spacing: -.01em;
+    p {
+      margin: 0 0 26px;
+      color: #555;
+      font-size: 1.08rem;
     }
-    .research-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
-      gap: 28px;
-      width: 100%;
-    }
-    .research-card {
-      background: #fafdff;
-      border-radius: 11px;
-      box-shadow: 0 2px 13px rgba(34, 77, 237, 0.06);
-      padding: 20px 16px 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transition: box-shadow 0.17s;
-      min-height: 300px;
-      cursor: pointer;
-      border: none;
-      outline: none;
-    }
-    .research-card:hover, .research-card:focus {
-      box-shadow: 0 7px 28px rgba(34, 77, 237, 0.11);
-      outline: 2px solid #224ede26;
-    }
-    .cover-image {
-      width: 100%;
-      max-width: 200px;
-      height: 125px;
-      object-fit: cover;
-      border-radius: 6px;
-      margin-bottom: 15px;
-      background: #e3eaf7;
-      display: block;
-      transition: transform .19s;
-    }
-    .research-card:hover .cover-image {
-      transform: scale(1.035);
-    }
-    .research-title {
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: #224ede;
-      margin-bottom: 6px;
-      text-align: center;
-      word-break: break-word;
-    }
-    .research-desc {
-      font-size: 1.01rem;
-      color: #344580;
-      margin-bottom: 16px;
-      text-align: center;
-      min-height: 44px;
-      max-width: 97%;
-      word-break: break-word;
-    }
-    .open-pdf-btn {
+    .button {
       background: #224ede;
-      color: #fff;
+      color: #ffffff;
       border: none;
-      border-radius: 5px;
-      padding: 8px 18px;
-      font-size: 0.97rem;
+      border-radius: 6px;
+      padding: 12px 26px;
+      font-size: 1rem;
+      font-weight: 500;
       cursor: pointer;
       text-decoration: none;
-      transition: background .16s;
-      font-weight: 500;
-      margin-top: auto;
+      transition: background .18s;
       display: inline-block;
-      box-shadow: 0 1.5px 7px #224ede13;
     }
-    .open-pdf-btn:hover, .open-pdf-btn:focus {
-      background: #193c92;
-    }
-    /* Simple scrollbar styling */
-    .portfolio-container::-webkit-scrollbar {
-      width: 8px;
-      background: #e8ecf8;
-      border-radius: 15px;
-    }
-    .portfolio-container::-webkit-scrollbar-thumb {
-      background: #ccd9f3;
-      border-radius: 15px;
-    }
-    @media (max-width: 650px) {
-      .portfolio-container {
-        max-height: unset;
-        box-shadow: 0 1.5px 7px rgba(34,77,237, 0.06);
-        border-radius: 0;
-        min-height: unset;
-        padding: 14px 2vw 16px;
-      }
-      h1 {
-        font-size: 1.32rem;
-      }
-      .research-list {
-        gap: 14px;
-      }
-      .research-card {
-        min-height: 180px;
-        padding: 13px 6px 13px;
-      }
-      .cover-image {
-        max-width: 99vw;
-        height: 108px;
-      }
-      .research-title {
-        font-size: 1rem;
-      }
-      .research-desc {
-        font-size: 0.97rem;
-      }
+    .button:hover {
+      background: #173997;
     }
   </style>
 </head>
 <body>
-  <div class="portfolio-container">
-    <h1>Research Portfolio</h1>
-    <div class="intro">
-      Equity &amp; Market Research.<br>
-      Select any report below to access PDF report.
-    <div style="font-style:italic;color:#888;font-size:0.95em;padding:5px 0;">Not financial advice</div>
-    </div>
-    <div class="research-list" id="researchList">
-      <!-- Research cards generated here by JS -->
-    </div>
+  <div class="container">
+    <h1>Equity <span style="color:#224ede;">&</span> Market Research</h1>
+    <p>
+      Welcome to Zach Saporito's research portfolio.<br>
+      Dive into my equity and market research, analysis, and insights. <br>
+    </p>
+    <a href="Portfolio.html" class="button">View Research</a>
   </div>
-  <script>
-    /*
-      To display research, edit the 'reports' array below.
-      Each item: { title, description, cover, pdf }
-      - cover: image URL or base64 data URL (host images externally for public use!)
-      - pdf: PDF file URL (uploaded to a public host or e.g. Google Drive shared PDF link)
-    */
-    const reports = [
-    {
-        title: "FreshPet Recovery Thesis",
-        description: "Fall 2025: A look into FreshPet's under-the-radar improvements across top and bottom lines of performance against the market's continued bearish sentiment",
-        cover: "https://avocadopesto.com/wp-content/uploads/2017/10/freshpet-dog-food-FG.jpg",
-        pdf: "https://saporitozach-dot.github.io/SapResearch/FRPT2pager.pdf"
-      },
-      {
-        title: "Boston Beer: A Potential Turning Point?",
-        description: "Early 2025: Deep-dive into Boston Beer's latest drink release: Sun Cruiser, and how it could propel the stock with shifting consumer preferences and higher margins.",
-        cover: "https://d1ynl4hb5mx7r8.cloudfront.net/wp-content/uploads/2023/11/13143156/SunCruiser_970.jpg",
-        pdf: "https://saporitozach-dot.github.io/SapResearch/SAMReport.pdf"
-      },
-      {
-        title: "CitiGroup Long Thesis",
-        description: "Early 2024: Citigroup poised for stock appreciation due to improving efficiencies throughout the bank, led by cost-cutting initiatives that are directly increasing the bank's ROE and ROTCE.",
-        cover: "https://www.burohappold.com/wp-content/uploads/2024/07/CitiTower_09_WilkinsonEyre-1024x683.jpg",
-        pdf: "https://saporitozach-dot.github.io/SapResearch/CitiOfficialReport.pdf"
-      },
-      
-      // Add or remove objects above for your research entries!
-      // {
-      //   title: "Example",
-      //   description: "Short description.",
-      //   cover: "https://your-image-link.jpg",
-      //   pdf: "https://your-public-pdf-link.pdf"
-      // },
-    ];
-
-    function renderReports() {
-      const list = document.getElementById('researchList');
-      if (reports.length === 0) {
-        list.innerHTML = `<p style="grid-column: 1/-1;text-align:center;padding:42px 0;color:#789;">No research reports available yet.</p>`;
-        return;
-      }
-      list.innerHTML = '';
-      for (const report of reports) {
-        const card = document.createElement('div');
-        card.className = 'research-card';
-        card.tabIndex = 0; // Focus for accessibility
-
-        // Cover image
-        const img = document.createElement('img');
-        img.className = 'cover-image';
-        img.alt = 'Cover image';
-        img.src = report.cover;
-        card.appendChild(img);
-
-        // Title
-        const title = document.createElement('div');
-        title.className = 'research-title';
-        title.textContent = report.title;
-        card.appendChild(title);
-
-        // Description
-        const desc = document.createElement('div');
-        desc.className = 'research-desc';
-        desc.textContent = report.description;
-        card.appendChild(desc);
-
-        // Open PDF button
-        const link = document.createElement('a');
-        link.className = 'open-pdf-btn';
-        link.href = report.pdf;
-        link.target = '_blank';
-        link.textContent = 'Open PDF';
-        link.rel = "noopener";
-        card.appendChild(link);
-
-        // Make card clickable for PDF
-        card.addEventListener('click', () => {
-          window.open(report.pdf, '_blank', 'noopener');
-        });
-        card.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            window.open(report.pdf, '_blank', 'noopener');
-            e.preventDefault();
-          }
-        });
-
-        // So clicking button doesn't propagate
-        link.addEventListener('click', e => e.stopPropagation());
-
-        list.appendChild(card);
-      }
-    }
-
-    renderReports();
-  </script>
 </body>
 </html>
 <style>
+  body {
+    /* Replace the URL below with your preferred background image */
+    background-image: 
+      linear-gradient(rgba(34, 34, 34, 0.50), rgba(0, 0, 0, 0.5)),
+      url('https://www.travelandleisure.com/thmb/eV7Kei0oaGrG8iCh5SxubxBuFuQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/TAL-glacier-lead-image-GLACIERNP0824-e7db370b556a4415b4172e749d1ab8a3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(1) contrast(1);
+  }
+</style>
+<style>
+  /* Lock site width to avoid horizontal scrolling and center content */
   html, body {
-    /* Lock all page dimensions */
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  .container {
+    box-sizing: border-box;
+    max-width: 920px;
+    margin: 80px auto 0 auto;
+    width: 94vw;
+    background: rgba(255,255,255,0.96);
+    border-radius: 14px;
+    box-shadow: 0 4px 28px rgba(34,77,237,0.07);
+    padding: 38px 34px 40px 34px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  @media (max-width: 600px) {
+    .container {
+      width: 99vw;
+      max-width: 100vw;
+      padding: 18px 5vw 20px 5vw;
+      margin: 24px 0 0 0;
+      border-radius: 0;
+      box-shadow: 0 1.5px 8px rgba(34,77,237,0.04);
+    }
+    body {
+      font-size: 0.98rem;
+    }
+  }
+</style>
+<style>
+  html, body {
     width: 100vw;
     height: 100vh;
-    min-width: 100vw !important;
-    min-height: 100vh !important;
-    max-width: 100vw !important;
-    max-height: 100vh !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    max-width: 100vw;
+    max-height: 100vh;
     overflow-x: hidden !important;
-    overflow-y: hidden !important;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+  }
+  body {
     box-sizing: border-box;
   }
-
-  body {
-    position: fixed !important;
-    left: 0; right: 0; top: 0; bottom: 0;
-    overscroll-behavior: none;
-    width: 100vw !important;
-    height: 100vh !important;
-  }
-
   #root, .container {
-    max-width: 100vw !important;
-    max-height: 100vh !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    overflow: hidden !important;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 </style>
 <script>
-// Strictly lock scrolling and background image sizing for this page.
-
-// Prevent and correct vertical scrolling and accidental scrolling offsets.
-function lockVerticalScroll() {
-  window.scrollTo(0, 0);
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
-document.addEventListener('DOMContentLoaded', lockVerticalScroll);
-window.addEventListener('scroll', lockVerticalScroll, { passive: false });
-
-// Also ensure accidental horizontal scroll is corrected and snap to (0,0)
-function lockHorizontalScroll() {
-  window.scrollTo(0, 0);
-  document.body.scrollLeft = 0;
-  document.documentElement.scrollLeft = 0;
-}
-document.addEventListener('DOMContentLoaded', lockHorizontalScroll);
-window.addEventListener('scroll', lockHorizontalScroll, { passive: false });
-
-
-
-
-
-
-
-
+  // Remove accidental offsets and forcibly snap scroll position to prevent scrollbars
+  window.addEventListener('DOMContentLoaded', function() {
+    document.documentElement.scrollLeft = 0;
+    document.body.scrollLeft = 0;
+    // If you want to lock scrolling in both axes:
+    // document.body.style.overflowX = 'hidden';
+    // document.documentElement.style.overflowX = 'hidden';
+  });
+</script>
+<style>
+  /* Reset .container to original/normal dimensions as on desktop */
+  @media (min-width: 601px) {
+    .container {
+      width: 700px;
+      max-width: 94vw;
+      margin: 54px auto 0 auto;
+      border-radius: 14px;
+      box-shadow: 0 4px 28px rgba(34,77,237,0.07);
+      padding: 38px 34px 40px 34px;
+    }
+  }
+</style>
+<style>
+  html, body {
+    height: 100%;
+    min-height: 100vh;
+    overflow-y: hidden !important;
+  }
+  body {
+    position: fixed;
+    width: 100vw;
+    overscroll-behavior-y: none;
+  }
+</style>
+<script>
+  // Prevent and correct vertical scrolling on page load and on scroll events.
+  function lockVerticalScroll() {
+    window.scrollTo(0, 0);
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+  document.addEventListener('DOMContentLoaded', lockVerticalScroll);
+  window.addEventListener('scroll', lockVerticalScroll, { passive: false });
+</script>
