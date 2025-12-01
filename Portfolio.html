@@ -326,18 +326,47 @@
 </style>
 <script>
   // Prevent and correct all scrolling forever
-  function lockAllScroll() {
+  // Fully disable all scrolling on the page robustly
+  function disableScrolling() {
+    // Force scroll position to (0,0)
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
     document.body.scrollLeft = 0;
     document.documentElement.scrollLeft = 0;
+    // Make sure overflow is hidden
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.width = '100vw';
+    document.body.style.height = '100vh';
   }
-  document.addEventListener('DOMContentLoaded', lockAllScroll);
-  window.addEventListener('scroll', lockAllScroll, {passive: false});
-  window.addEventListener('resize', lockAllScroll);
 
-  // Prevent arrow keys, spacebar, and page up/down from scrolling the page
+  // Call immediately and on various possible events
+  document.addEventListener('DOMContentLoaded', disableScrolling);
+  window.addEventListener('load', disableScrolling);
+  window.addEventListener('resize', disableScrolling);
+  window.addEventListener('scroll', function(e) {
+    disableScrolling();
+    // Block the event to avoid scrollbars flash/flicker
+    e.stopImmediatePropagation();
+    e.preventDefault();
+    return false;
+  }, {passive: false});
+
+  // Mouse wheel, touch, etc.
+  window.addEventListener('wheel', function(e) {
+    e.stopImmediatePropagation();
+    e.preventDefault();
+    return false;
+  }, {passive: false});
+  window.addEventListener('touchmove', function(e) {
+    e.stopImmediatePropagation();
+    e.preventDefault();
+    return false;
+  }, {passive: false});
+
+  // Prevent arrow keys, spacebar, and common scroll keys
   window.addEventListener('keydown', function(e) {
     const scrollKeys = [
       'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 
@@ -345,8 +374,15 @@
     ];
     if (scrollKeys.includes(e.key)) {
       e.preventDefault();
+      e.stopImmediatePropagation();
+      return false;
     }
   }, {passive: false});
-</script>
+
+
+
+
+
+
 
 
